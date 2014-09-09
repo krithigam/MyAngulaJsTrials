@@ -1,0 +1,6 @@
+﻿<% _.forEach(data.items, function(item, i) { %>
+<div class="tabular-result tabular-crosswalk-result selectable<% if (item.is_best_match === true) { print(' best'); } %>" id="tabular-<%= item.id %>" data-book="<%= item.book %>" data-id="<%= item.id %>" title="<%= item.is_best_match === true ? 'Best' : 'Other' %> Result">
+    <span><%= item.medium_description %></span>
+    <span class="code default-target"><%= item.code %></span>
+</div>
+<% }); %>

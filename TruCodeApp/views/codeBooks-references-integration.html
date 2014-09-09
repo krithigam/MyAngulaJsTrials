@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>True Code App</title>
+
+    <link href="../../../css/kendo.common.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/trucode.layout.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/trucode.theme.default.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/grid.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+
+
+</head>
+<body>
+    <div class="container_32" style="">
+        <div class="grid_32">
+            <div id="logoImage">
+                <img src="../../../css/img/SimChart_orangeblue_logo.png" id="logoimg" alt="">
+            </div>
+        </div>
+        <div id="tc-codebooks" class="trucode grid_32" style="width: 675px;">
+            <div id="codeBooks-wrapper" class="grid_32" style="width: 675px;height: 650px"></div>
+        </div>
+        <div id="tc-references" class="trucode grid_32" title="References" style="width: 675px;visibility: hidden">
+            <div id="references-wrapper" class="grid_32" style="width: 675px;height: 500px;"></div>
+        </div>
+    </div>
+    <script>
+        var cb, ref;
+       
+        window.TC = {
+            authorizationKey: 'Bearer SXNzdWVyPVRydUNvZGVTVFMmcGFydG5lcl9pZD1FbHNldmllciZ1c2VyX2lkPXNvbWVfdXNlcl9uYW1lJmN1c3RvbWVyX2lkPUVsc2V2aWVyJkV4cGlyZXNPbj0xNDAwMDM1OTY0JnNpZ25hdHVyZUFsZ29yaXRobT1ITUFDJkhNQUNTSEEyNTY9VktVaSUyZm90WkVRQ3dOMHI5UzFUSFc5UktMbU5RaEpoS0xaUyUyYmhzakglMmJhdyUzZA==',
+            ready: function (api, $tc) {
+                if (TC.option('authorizationKey') === 'Bearer SXNzdWVyPVRydUNvZGVTVFMmcGFydG5lcl9pZD1FbHNldmllciZ1c2VyX2lkPXNvbWVfdXNlcl9uYW1lJmN1c3RvbWVyX2lkPUVsc2V2aWVyJkV4cGlyZXNPbj0xNDAwMDM1OTY0JnNpZ25hdHVyZUFsZ29yaXRobT1ITUFDJkhNQUNTSEEyNTY9VktVaSUyZm90WkVRQ3dOMHI5UzFUSFc5UktMbU5RaEpoS0xaUyUyYmhzakglMmJhdyUzZA==') { alert('Set a valid authorization key before using this page.'); return; }
+                // setup codeBooks
+                cb = api.createControl({
+                    type: 'codeBooks',
+                    el: '#codeBooks-wrapper',
+                    book: 'ICD9CM_DX'
+                });
+                cb.tcOn('research:referenceClick', onReferenceClick);
+                // setup references
+                ref = api.createControl('references', '#references-wrapper');
+            }
+        };
+
+        function onReferenceClick(refEvent) {
+            ref.tcTrigger('references:clear');
+
+            $('#tc-references').dialog({ autoOpen: false, modal: true, width: 750 }).css('visibility', 'visible');
+            $('#tc-references').dialog("open");
+
+            if (refEvent.articleId) {
+                ref.tcTrigger('references:search', { term: refEvent.code, bookId: refEvent.book, mockUser: true, articleId: refEvent.articleId });
+            } else {
+                // no article, select book
+                ref.tcTrigger('references:search', { term: refEvent.code, bookId: refEvent.book, mockUser: true });
+            }
+        }
+
+        (function (d) {
+            var js, id = 'tc-api', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "../../../javascripts/trucode.all.js";
+            ref.parentNode.insertBefore(js, ref);
+        }(document));
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="proxy.aspx.cs" Inherits="TruCode.Web.UI.Controls.proxy" %>

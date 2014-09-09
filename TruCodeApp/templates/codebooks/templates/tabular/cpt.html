@@ -1,0 +1,91 @@
+﻿<% var lastRowLength = 0 %>
+<% _.each(records, function(record) { %>
+    <% if (record.recordType.indexOf('table') === -1) { %>
+    <div class="tabular-result tabular-cpt-result type-<%= record.recordType %> level-<%= record.record.level %><% if (record.record.subtypes && record.record.subtypes.length) { _.each(record.record.subtypes, function(st) { print(' subtype-' + st.name); }); } %><% if (record.record.hasinstructionalnotes) { print (' inote'); } %><% if (record.selectable) { print(' selectable'); } %>" id="tabular-<%= record.data_sequence %>" data-book="<%= record.data_book %>" data-sequence="<%= record.data_sequence %>" data-date="<%= record.data_date %>">
+    <% } %>
+    <% switch (record.recordType) {
+        case 'section':
+        case 'sectiontitle': { %>
+        <h1><span><%= record.record.content %></span></h1>
+        <% }
+        break;
+        case 'tabletitle': { %>
+        <h3><span><%= record.record.content %></span></h3>
+        <table class="tabular-table tabular-result tabular-cpt-result" id="tabular-<%= record.data_sequence %>" data-book="<%= record.data_book %>" data-sequence="<%= record.data_sequence %>" data-date="<%= record.data_date %>">
+        <% }
+        break;
+        case 'tablehead': { %>
+        <% lastRowLength = record.record.column_content.length %>
+        <tr>
+            <% _.each(record.record.column_content, function(col) { %>
+            <th><%= col %></th>
+            <% }); %>
+        </tr>
+        <% }
+        break;
+        case 'tableheading': { %>
+        <tr><td class="table-heading" colspan="<%= lastRowLength %>"><%= record.record.content %></td></tr>
+        <% }
+        break;
+        case 'tableoddrow': { %>
+        <tr class="odd">
+            <% _.forEach(record.record.column_content, function(col, i) { %>
+            <td<% if (i === 0) { if (col.length) { print(' class="first has-content"'); } else { print(' class="first"'); } } %>><%= col %></td>
+            <% }); %>
+        </tr>
+        <% }
+        break;
+        case 'tableevenrow': { %>
+        <tr class="even">
+            <% _.forEach(record.record.column_content, function(col, i) { %>
+            <td<% if (i === 0) { if (col.length) { print(' class="first has-content"'); } else { print(' class="first"'); } } %>><%= col %></td>
+            <% }); %>
+        </tr>
+        <% }
+        break;
+        case 'tableend': { %>
+        </table>
+        <% }
+        break;
+        case 'sectionline':
+        case 'orderedlistitem': { %>
+        <span><%= record.record.content %></span>
+        <% }
+        break;
+        case 'codingtiptitle': { %>
+        <h2><span><%= record.record.content %></span></h2>
+        <% }
+        break;
+        case 'codingtipline': { %>
+        <blockquote><%= record.record.content %></blockquote>
+        <% }
+        break;
+        default: { %>
+        <div class="icon-wrapper col">
+            <a class="inote-icon icon" title="Show Instructional Notes" href="javascript:void(0)"></a>
+            <span class="order-icon icon" title="Code is out of numerical sequence"></span>
+            <span class="exempt-icon icon" title="Modifier -51 Exempt"></span>
+            <span class="cs-icon icon" title="Conscious Sedation"></span>
+            <span class="fda-icon icon" title="FDA approval pending"></span>
+            <span class="new-icon icon" title="New Code"></span>
+            <span class="addon-icon icon" title="Add-On Code"></span>
+            <span class="modified-icon icon" title="Revised Code"></span>
+        </div>
+        <div class="codes-wrapper col">
+            <span class="codes"><a href="javascript:void(0)" class="code primary-code default-target"><%= record.record.code %></a></span>
+        </div>
+        <div class="parts-wrapper">
+            <div class="images-wrapper">
+            <%_.forEach(record.record.images, function(img, i) { %>
+                <a href="javascript:void(0)" class="img-icon icon" data-image-name="<%= img.filename %>" title="<%= img.title %>" data-image-caption="<%= img.caption %>"></a>
+            <% }); %>
+            </div>
+            <span class="parts"><%= record.record.content %></span>
+        </div>
+        <% }
+        break;
+    } %>
+    <% if (record.recordType.indexOf('table') === -1) { %>
+    </div>
+    <% } %>
+<% }); %>

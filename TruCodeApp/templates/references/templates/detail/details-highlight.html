@@ -1,0 +1,13 @@
+﻿<% var randomId = Math.random().toString().replace('0.',''); %>
+<div class="pane-content pane-slim">
+    <div class="heading-slim heading-nobg form-inline">
+        <div class="actions">
+            <div class="actions-right">
+                <input type="checkbox" class="hightlight-toggle" id="highlight-toggle-<%= randomId %>" checked="checked" />
+                <label for="highlight-toggle-<%= randomId %>">Highlight matched terms</label>
+            </div>
+            <button type="button" class="highlight-previous k-button k-state-disabled disabled">Previous Term</button>
+            <button type="button" class="highlight-next k-button k-state-disabled disabled">Next Term</button>
+        </div>
+    </div>
+</div>

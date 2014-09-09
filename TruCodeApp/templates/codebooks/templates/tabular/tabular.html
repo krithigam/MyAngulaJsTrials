@@ -1,0 +1,69 @@
+﻿<% _.each(records, function(record) { %>
+    <div class="tabular-result tabular-tabular-result type-<%= record.recordType %> level-<%= record.record.level %><% if (record.record.hasinstructionalnotes) { print (' inote'); } %><% if (record.record.subtypes && record.record.subtypes.length) { _.each(record.record.subtypes, function(st) { print(' subtype-' + st.name); }); } %><% if (record.selectable && !record.sevenCharCode) { print(' selectable'); } %><% if (record.sevenCharCode) { print(' seven-char'); } %>" id="tabular-<%= record.data_sequence %>" data-level="<%= record.record.level %>" data-book="<%= record.data_book %>" data-sequence="<%= record.data_sequence %>" data-date="<%= record.data_date %>">
+    <% switch (record.recordType) {
+        case 'booktitle': { %>
+        <h1><%= record.record.content %></h1>
+        <% }
+        break;
+        case 'sectiontitle':
+        case 'chaptertitle': { %>
+        <h3><%= record.record.content %></h3>
+        <% }
+        break;
+        case 'regular': { %>
+        <div class="padded">
+            <% _.each(record.record.regular_note_data.segments, function(segment) { %>
+            <span class="note <%= segment.type %> note-level-<%= segment.level%>"><%= segment.content %></span>
+            <% }); %>
+        </div>
+        <% }
+        break;
+        case 'instructionalnote': { %>
+        <% if (typeof inotePopup !== 'undefined' && inotePopup && record.startCode && record.endCode) { %>
+            <div class="code-range code-text"><%= record.startCode %> &mdash; <%= record.endCode %></div>
+        <% } %>
+        <div class="padded <%= record.record.instructional_note_data.type %>">
+            <%_.forEach(record.record.instructional_note_data.segments, function(segment, i) { %>
+            <div class="parts<% if (i === 0) { print(' first'); } %>">
+                <% if (i === 0) { %><span class="prefix"><%= _.str.titleize(record.record.instructional_note_data.type) + ':' %>&nbsp;</span><% } %><span class="segment level-<%= segment.level %>"><span class="part <%= segment.type %>"><%= segment.content.replace(/^Includes:\s?|^Excludes[12]:\s?/i, '') %></span></span>
+            </div>
+            <% }); %>
+        </div>
+        <% }
+        break;
+        default: { %>
+        <div class="leading col">
+            <a class="inote-icon icon" title="Show Instructional Notes" href="javascript:void(0)"></a>
+        </div>
+        <div class="padded">
+            <div class="status-icon-wrapper col">
+                <span class="new-icon icon" title="New Code"></span>
+                <span class="modified-icon icon" title="Revised Code"></span>
+            </div>
+            <div class="codes-wrapper col">
+                <span class="codes">
+                <%_.forEach(record.record.codes, function(recordCode, i) { %>
+                    <% if (i > 0) { %>, <% } %>
+                    <% if (record.sevenCharCode) { %>
+                    <a href="javascript:void(0)" class="code invisible full<% if (i === 0) print(' primary-code default-target'); %>"><%= recordCode.startcode %></a><a href="javascript:void(0)" class="code trimmed"><%= recordCode.startcode.charAt(recordCode.startcode.length - 1) %></a>
+                    <% } else { %>
+                    <a href="javascript:void(0)" class="code<% if (i === 0) print(' primary-code default-target'); %>"><%= recordCode.startcode %></a>
+                    <% } %>
+                <% }); %>
+                </span>
+            </div>
+            <div class="icon-wrapper col">
+                <span class="cc-icon icon" title="Complication/Comorbid Condition"></span>
+                <span class="mcc-icon icon" title="Major Complication/Comorbid Condition"></span>
+                <span class="nonor-icon icon" title="Nonoperative procedure"></span>
+                <span class="or-icon icon" title="Operative procedure"></span>
+            </div>
+            <div class="parts-wrapper">
+                <span class="parts"><span class="part"><%= record.record.content %></span></span>
+            </div>
+        </div>
+        <% }
+        break;
+    } %>
+    </div>
+<% }); %>

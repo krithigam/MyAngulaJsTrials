@@ -1,0 +1,9 @@
+﻿<% if (hasTabs) { %>
+<% var randomId = Math.random().toString().replace('0.',''); %>
+<div class="tabstrip research-pane" id="tabstrip-<%= randomId %>">
+    <ul>
+    </ul>
+</div>
+<% } else { %>
+<div class="research-pane"></div>
+<% } %>

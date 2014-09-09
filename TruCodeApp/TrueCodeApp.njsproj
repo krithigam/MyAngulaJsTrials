@@ -1,0 +1,589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11cd7729-0ee3-48f0-bf20-a0f15bc13063}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>app.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>TrueCodeApp</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Compile Include="node_modules\ejs\benchmark.js" />
+    <Compile Include="node_modules\ejs\ejs.js" />
+    <Compile Include="node_modules\ejs\ejs.min.js" />
+    <Compile Include="node_modules\ejs\examples\functions.js" />
+    <Compile Include="node_modules\ejs\examples\list.js" />
+    <Compile Include="node_modules\ejs\index.js" />
+    <Compile Include="node_modules\ejs\lib\ejs.js" />
+    <Compile Include="node_modules\ejs\lib\filters.js" />
+    <Compile Include="node_modules\ejs\lib\utils.js" />
+    <Compile Include="node_modules\ejs\support\compile.js" />
+    <Compile Include="node_modules\ejs\test\ejs.js" />
+    <Compile Include="node_modules\node-static\bin\cli.js" />
+    <Compile Include="node_modules\node-static\examples\file-server.js" />
+    <Compile Include="node_modules\node-static\lib\node-static.js" />
+    <Compile Include="node_modules\node-static\lib\node-static\util.js" />
+    <Compile Include="node_modules\node-static\node_modules\colors\colors.js" />
+    <Compile Include="node_modules\node-static\node_modules\colors\example.js" />
+    <Compile Include="node_modules\node-static\node_modules\colors\test.js" />
+    <Compile Include="node_modules\node-static\node_modules\colors\themes\winston-dark.js" />
+    <Compile Include="node_modules\node-static\node_modules\colors\themes\winston-light.js" />
+    <Compile Include="node_modules\node-static\node_modules\mime\mime.js" />
+    <Compile Include="node_modules\node-static\node_modules\mime\test.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\bool.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\boolean_double.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\boolean_single.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\default_hash.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\default_singles.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\divide.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\line_count.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\line_count_options.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\line_count_wrap.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\nonopt.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\reflect.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\short.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\string.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\usage-options.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\example\xup.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\index.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\example\parse.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\index.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\bool.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\dash.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\default_bool.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\dotted.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\long.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\num.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\parse.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\parse_modified.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\short.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\whitespace.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\example\center.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\example\meat.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\index.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\test\break.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\test\wrap.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\dash.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\parse.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\parse_modified.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\short.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\usage.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\whitespace.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\_.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\_\argv.js" />
+    <Compile Include="node_modules\node-static\node_modules\optimist\test\_\bin.js" />
+    <Compile Include="node_modules\node-static\test\integration\node-static-test.js" />
+    <Compile Include="public\javascripts\trucode.all.js" />
+    <Compile Include="public\javascripts\trucode.all.min.js" />
+    <Compile Include="public\javascripts\trucode.js" />
+    <Compile Include="public\javascripts\trucode.min.js" />
+    <Content Include="public\css\grid.css" />
+    <Content Include="public\css\img\editor.png" />
+    <Content Include="public\css\img\icons\arrow-000-medium.png" />
+    <Content Include="public\css\img\icons\arrow-180-medium.png" />
+    <Content Include="public\css\img\icons\binoculars.png" />
+    <Content Include="public\css\img\icons\blue_T.png" />
+    <Content Include="public\css\img\icons\bullet.png" />
+    <Content Include="public\css\img\icons\cc.png" />
+    <Content Include="public\css\img\icons\changearrow-left.png" />
+    <Content Include="public\css\img\icons\changearrow-right.png" />
+    <Content Include="public\css\img\icons\channel-publishing.png" />
+    <Content Include="public\css\img\icons\circle-green.png" />
+    <Content Include="public\css\img\icons\circle-red.png" />
+    <Content Include="public\css\img\icons\circle-yellow.png" />
+    <Content Include="public\css\img\icons\circle.png" />
+    <Content Include="public\css\img\icons\codeset_indicator.png" />
+    <Content Include="public\css\img\icons\cog_new_improved.png" />
+    <Content Include="public\css\img\icons\cog_orig.png" />
+    <Content Include="public\css\img\icons\cpt_addon_code.png" />
+    <Content Include="public\css\img\icons\cpt_code_is_out_of_numerical_sequence.png" />
+    <Content Include="public\css\img\icons\cpt_conscious_sedation.png" />
+    <Content Include="public\css\img\icons\cpt_fda_approval_pending.png" />
+    <Content Include="public\css\img\icons\cpt_instr_addon_code.png" />
+    <Content Include="public\css\img\icons\cpt_instr_square_bullet.png" />
+    <Content Include="public\css\img\icons\cpt_inst_li_bullet.png" />
+    <Content Include="public\css\img\icons\cpt_li_bullet.png" />
+    <Content Include="public\css\img\icons\cpt_modifier_51_exempt.png" />
+    <Content Include="public\css\img\icons\cpt_revised_code.png" />
+    <Content Include="public\css\img\icons\cpt_section_line_bullet.png" />
+    <Content Include="public\css\img\icons\cpt_square_bullet.png" />
+    <Content Include="public\css\img\icons\dropdown.png" />
+    <Content Include="public\css\img\icons\error.png" />
+    <Content Include="public\css\img\icons\floppy disk 2.png" />
+    <Content Include="public\css\img\icons\Folder blue unfolded.png" />
+    <Content Include="public\css\img\icons\Image.png" />
+    <Content Include="public\css\img\icons\instrNotes.png" />
+    <Content Include="public\css\img\icons\loupe.png" />
+    <Content Include="public\css\img\icons\mcc.png" />
+    <Content Include="public\css\img\icons\more.png" />
+    <Content Include="public\css\img\icons\nonor.png" />
+    <Content Include="public\css\img\icons\or.png" />
+    <Content Include="public\css\img\icons\Plus.png" />
+    <Content Include="public\css\img\icons\print.png" />
+    <Content Include="public\css\img\icons\rac.png" />
+    <Content Include="public\css\img\icons\reference_print.png" />
+    <Content Include="public\css\img\icons\research_books.png" />
+    <Content Include="public\css\img\icons\resize_handle-blue.png" />
+    <Content Include="public\css\img\icons\resize_handle.png" />
+    <Content Include="public\css\img\icons\resize_handle_h-blue.png" />
+    <Content Include="public\css\img\icons\resize_handle_h.png" />
+    <Content Include="public\css\img\icons\resize_handle_mini-blue.png" />
+    <Content Include="public\css\img\icons\resize_handle_mini.png" />
+    <Content Include="public\css\img\icons\small_bullet.png" />
+    <Content Include="public\css\img\icons\sphere_blue.png" />
+    <Content Include="public\css\img\icons\sphere_green.png" />
+    <Content Include="public\css\img\icons\sphere_navy-blue.png" />
+    <Content Include="public\css\img\icons\sphere_orange.png" />
+    <Content Include="public\css\img\icons\sphere_purple.png" />
+    <Content Include="public\css\img\icons\sphere_red.png" />
+    <Content Include="public\css\img\icons\sphere_yellow.png" />
+    <Content Include="public\css\img\icons\TCBullet.png" />
+    <Content Include="public\css\img\icons\triangle.png" />
+    <Content Include="public\css\img\icons\warning.png" />
+    <Content Include="public\css\img\imagebrowser.png" />
+    <Content Include="public\css\img\loading-image.gif" />
+    <Content Include="public\css\img\loading.gif" />
+    <Content Include="public\css\img\SimChart_orangeblue_logo.png" />
+    <Content Include="public\css\img\slider-h.gif" />
+    <Content Include="public\css\img\slider-v.gif" />
+    <Content Include="public\css\img\splitbar-border-h.png" />
+    <Content Include="public\css\img\splitbar-border.png" />
+    <Content Include="public\css\img\sprite.png" />
+    <Content Include="public\css\img\sprite_2x.png" />
+    <Content Include="public\css\img\textures\brushed-metal.png" />
+    <Content Include="public\css\img\textures\dots1.png" />
+    <Content Include="public\css\img\textures\dots10.png" />
+    <Content Include="public\css\img\textures\dots11.png" />
+    <Content Include="public\css\img\textures\dots12.png" />
+    <Content Include="public\css\img\textures\dots13.png" />
+    <Content Include="public\css\img\textures\dots2.png" />
+    <Content Include="public\css\img\textures\dots3.png" />
+    <Content Include="public\css\img\textures\dots4.png" />
+    <Content Include="public\css\img\textures\dots5.png" />
+    <Content Include="public\css\img\textures\dots6.png" />
+    <Content Include="public\css\img\textures\dots7.png" />
+    <Content Include="public\css\img\textures\dots8.png" />
+    <Content Include="public\css\img\textures\dots9.png" />
+    <Content Include="public\css\img\textures\glass-lighter.png" />
+    <Content Include="public\css\img\textures\glass.png" />
+    <Content Include="public\css\img\textures\highlight.png" />
+    <Content Include="public\css\img\textures\hsv-gradient.png" />
+    <Content Include="public\css\img\textures\hue.png" />
+    <Content Include="public\css\img\textures\leather1.png" />
+    <Content Include="public\css\img\textures\leather2.png" />
+    <Content Include="public\css\img\textures\noise.png" />
+    <Content Include="public\css\img\textures\stripe1.png" />
+    <Content Include="public\css\img\textures\stripe2.png" />
+    <Content Include="public\css\img\textures\stripe3.png" />
+    <Content Include="public\css\img\textures\stripe4.png" />
+    <Content Include="public\css\img\textures\stripe5.png" />
+    <Content Include="public\css\img\textures\stripe6.png" />
+    <Content Include="public\css\img\textures\transparency.png" />
+    <Content Include="public\css\img\textures\transtexture.png" />
+    <Content Include="public\css\img\toggles.png" />
+    <Content Include="public\css\img\version.png" />
+    <Content Include="public\css\kendo.common.css" />
+    <Content Include="public\css\kendo.common.min.css" />
+    <Content Include="public\css\less-source\kendoui.template.less" />
+    <Content Include="public\css\less-source\kendoui.template.overrides.less" />
+    <Content Include="public\css\less-source\trucode.template.less" />
+    <Content Include="public\css\less-source\trucode.theme.blue.less" />
+    <Content Include="public\css\less-source\trucode.theme.default.less" />
+    <Content Include="public\css\print.html" />
+    <Content Include="public\css\trucode.layout.css" />
+    <Content Include="public\css\trucode.layout.min.css" />
+    <Content Include="public\css\trucode.print.css" />
+    <Content Include="public\css\trucode.print.min.css" />
+    <Content Include="public\css\trucode.theme.blue.css" />
+    <Content Include="public\css\trucode.theme.blue.min.css" />
+    <Content Include="public\css\trucode.theme.default.css" />
+    <Content Include="public\css\trucode.theme.default.min.css" />
+    <Content Include="license-agreements\License Agreement for Kendo UI Web Commercial.pdf" />
+    <Content Include="license-agreements\licenses.txt" />
+    <Content Include="node_modules\ejs\.gitmodules" />
+    <Content Include="node_modules\ejs\.npmignore" />
+    <Content Include="node_modules\ejs\.travis.yml" />
+    <Content Include="node_modules\ejs\examples\client.html" />
+    <Content Include="node_modules\ejs\examples\functions.ejs" />
+    <Content Include="node_modules\ejs\examples\list.ejs" />
+    <Content Include="node_modules\ejs\History.md" />
+    <Content Include="node_modules\ejs\Makefile" />
+    <Content Include="node_modules\ejs\package.json" />
+    <Content Include="node_modules\ejs\Readme.md" />
+    <Content Include="node_modules\ejs\test\fixtures\backslash.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\backslash.html" />
+    <Content Include="node_modules\ejs\test\fixtures\comments.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\comments.html" />
+    <Content Include="node_modules\ejs\test\fixtures\double-quote.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\double-quote.html" />
+    <Content Include="node_modules\ejs\test\fixtures\error.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\error.out" />
+    <Content Include="node_modules\ejs\test\fixtures\fail.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\include.css.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\include.css.html" />
+    <Content Include="node_modules\ejs\test\fixtures\include.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\include.html" />
+    <Content Include="node_modules\ejs\test\fixtures\includes\menu-item.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\includes\menu\item.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\menu.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\menu.html" />
+    <Content Include="node_modules\ejs\test\fixtures\messed.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\messed.html" />
+    <Content Include="node_modules\ejs\test\fixtures\newlines.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\newlines.html" />
+    <Content Include="node_modules\ejs\test\fixtures\no.newlines.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\no.newlines.html" />
+    <Content Include="node_modules\ejs\test\fixtures\para.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\pet.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\single-quote.ejs" />
+    <Content Include="node_modules\ejs\test\fixtures\single-quote.html" />
+    <Content Include="node_modules\ejs\test\fixtures\style.css" />
+    <Content Include="node_modules\ejs\test\fixtures\user.ejs" />
+    <Content Include="node_modules\mssql\.coffeemaker" />
+    <Content Include="node_modules\mssql\.npmignore" />
+    <Content Include="node_modules\mssql\.travis.yml" />
+    <Content Include="node_modules\mssql\CHANGELOG.txt" />
+    <Content Include="node_modules\mssql\node_modules\generic-pool\.npmignore" />
+    <Content Include="node_modules\mssql\node_modules\generic-pool\.travis.yml" />
+    <Content Include="node_modules\mssql\node_modules\generic-pool\fabfile.py" />
+    <Content Include="node_modules\mssql\node_modules\generic-pool\Makefile" />
+    <Content Include="node_modules\mssql\node_modules\generic-pool\package.json" />
+    <Content Include="node_modules\mssql\node_modules\generic-pool\README.md" />
+    <Content Include="node_modules\mssql\node_modules\tedious\LICENSE" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\.travis.yml" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\LICENSE" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\package.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\README.md" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\.npmignore" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\.travis.yml" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\Changelog.md" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\big5-added.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\cp936.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\cp949.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\cp950.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\eucjp.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\gb18030-ranges.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\gbk-added.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\shiftjis.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\LICENSE" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\package.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\README.md" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\README.md~" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\sprintf\package.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\node_modules\sprintf\README.md" />
+    <Content Include="node_modules\mssql\node_modules\tedious\package.json" />
+    <Content Include="node_modules\mssql\node_modules\tedious\README.md" />
+    <Content Include="node_modules\mssql\package.json" />
+    <Content Include="node_modules\mssql\README.md" />
+    <Content Include="node_modules\mssql\src\datatypes.coffee" />
+    <Content Include="node_modules\mssql\src\isolationlevel.coffee" />
+    <Content Include="node_modules\mssql\src\main.coffee" />
+    <Content Include="node_modules\mssql\src\msnodesql.coffee" />
+    <Content Include="node_modules\mssql\src\table.coffee" />
+    <Content Include="node_modules\mssql\src\tds-fix.coffee" />
+    <Content Include="node_modules\mssql\src\tds.coffee" />
+    <Content Include="node_modules\mssql\src\tedious.coffee" />
+    <Content Include="node_modules\mssql\src\udt.coffee" />
+    <Content Include="node_modules\node-static\.npmignore" />
+    <Content Include="node_modules\node-static\benchmark\node-static-0.3.0.txt" />
+    <Content Include="node_modules\node-static\LICENSE" />
+    <Content Include="node_modules\node-static\node_modules\colors\example.html" />
+    <Content Include="node_modules\node-static\node_modules\colors\MIT-LICENSE.txt" />
+    <Content Include="node_modules\node-static\node_modules\colors\package.json" />
+    <Content Include="node_modules\node-static\node_modules\colors\ReadMe.md" />
+    <Content Include="node_modules\node-static\node_modules\mime\LICENSE" />
+    <Content Include="node_modules\node-static\node_modules\mime\package.json" />
+    <Content Include="node_modules\node-static\node_modules\mime\README.md" />
+    <Content Include="node_modules\node-static\node_modules\mime\types\mime.types" />
+    <Content Include="node_modules\node-static\node_modules\mime\types\node.types" />
+    <Content Include="node_modules\node-static\node_modules\optimist\.travis.yml" />
+    <Content Include="node_modules\node-static\node_modules\optimist\LICENSE" />
+    <Content Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\.travis.yml" />
+    <Content Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\LICENSE" />
+    <Content Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\package.json" />
+    <Content Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\readme.markdown" />
+    <Content Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\.npmignore" />
+    <Content Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\package.json" />
+    <Content Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\README.markdown" />
+    <Content Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\test\idleness.txt" />
+    <Content Include="node_modules\node-static\node_modules\optimist\package.json" />
+    <Content Include="node_modules\node-static\node_modules\optimist\readme.markdown" />
+    <Content Include="node_modules\node-static\package.json" />
+    <Content Include="node_modules\node-static\README.md" />
+    <Content Include="node_modules\node-static\test\fixtures\hello.txt" />
+    <Content Include="node_modules\node-static\test\fixtures\index.html" />
+    <Content Include="node_modules\node-static\test\fixtures\there\index.html" />
+    <Content Include="package.json" />
+    <Compile Include="app.js" />
+    <Compile Include="node_modules\mssql\index.js" />
+    <Compile Include="node_modules\mssql\lib\datatypes.js" />
+    <Compile Include="node_modules\mssql\lib\isolationlevel.js" />
+    <Compile Include="node_modules\mssql\lib\main.js" />
+    <Compile Include="node_modules\mssql\lib\msnodesql.js" />
+    <Compile Include="node_modules\mssql\lib\table.js" />
+    <Compile Include="node_modules\mssql\lib\tds-fix.js" />
+    <Compile Include="node_modules\mssql\lib\tds.js" />
+    <Compile Include="node_modules\mssql\lib\tedious-fix.js" />
+    <Compile Include="node_modules\mssql\lib\tedious.js" />
+    <Compile Include="node_modules\mssql\lib\udt.js" />
+    <Compile Include="node_modules\mssql\node_modules\generic-pool\lib\generic-pool.js" />
+    <Compile Include="node_modules\mssql\node_modules\generic-pool\test\generic-pool.test.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\all-headers.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\buffertools.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\bulk-load.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\collation.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\connection.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\data-type.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\debug.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\errors.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\guid-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\instance-lookup.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\library.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\login7-payload.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\message-io.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\metadata-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\ntlm-payload.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\packet.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\prelogin-payload.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\request.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\rpcrequest-payload.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\special-stored-procedure.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\sqlbatch-payload.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\tds-versions.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\tedious.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\colmetadata-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\done-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\env-change-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\infoerror-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\loginack-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\nbcrow-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\order-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\returnstatus-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\returnvalue-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\row-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\sspi-token-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\token-stream-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\token\token.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\tracking-buffer\bigint.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\tracking-buffer\readable-tracking-buffer.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\tracking-buffer\tracking-buffer.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\tracking-buffer\writable-tracking-buffer.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\transaction.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\lib\value-parser.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\index.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\lib\bignumber.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\test\test.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\dbcs-codec.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\dbcs-data.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\index.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\internal.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\sbcs-codec.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\sbcs-data-generated.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\sbcs-data.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\lib\extend-node.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\lib\index.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\lib\streams.js" />
+    <Compile Include="node_modules\mssql\node_modules\tedious\node_modules\sprintf\lib\sprintf.js" />
+    <Compile Include="node_modules\mssql\nofix.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="public\javascripts\global.js" />
+    <Content Include="proxy\proxy.aspx" />
+    <Content Include="proxy\proxy.aspx.cs" />
+    <Content Include="public\stylesheets\style.css" />
+    <Content Include="templates\codebooks\templates\codebooks.html" />
+    <Content Include="templates\codebooks\templates\index\index-empty.html" />
+    <Content Include="templates\codebooks\templates\index\index-heading-empty.html" />
+    <Content Include="templates\codebooks\templates\index\index-heading.html" />
+    <Content Include="templates\codebooks\templates\index\index-no-results.html" />
+    <Content Include="templates\codebooks\templates\index\index-pcs.html" />
+    <Content Include="templates\codebooks\templates\index\index.html" />
+    <Content Include="templates\codebooks\templates\instructional-note.html" />
+    <Content Include="templates\codebooks\templates\modifiers.html" />
+    <Content Include="templates\codebooks\templates\searchbar\codebooks-error.html" />
+    <Content Include="templates\codebooks\templates\searchbar\searchbar.html" />
+    <Content Include="templates\codebooks\templates\tableHeadings\drug-ICD10.html" />
+    <Content Include="templates\codebooks\templates\tableHeadings\drug-ICD9.html" />
+    <Content Include="templates\codebooks\templates\tableHeadings\hypertension.html" />
+    <Content Include="templates\codebooks\templates\tableHeadings\neoplasm.html" />
+    <Content Include="templates\codebooks\templates\tabular\cpt-image-modal.html" />
+    <Content Include="templates\codebooks\templates\tabular\cpt.html" />
+    <Content Include="templates\codebooks\templates\tabular\crosswalk.html" />
+    <Content Include="templates\codebooks\templates\tabular\hcpcs.html" />
+    <Content Include="templates\codebooks\templates\tabular\index.html" />
+    <Content Include="templates\codebooks\templates\tabular\pcs-column-choices.html" />
+    <Content Include="templates\codebooks\templates\tabular\pcs-column-head.html" />
+    <Content Include="templates\codebooks\templates\tabular\pcs-wrapper.html" />
+    <Content Include="templates\codebooks\templates\tabular\tabular.html" />
+    <Content Include="templates\codebooks\templates\tabular\wrapper.html" />
+    <Content Include="templates\common\templates\loading-large.html" />
+    <Content Include="templates\common\templates\loading-small-wide.html" />
+    <Content Include="templates\common\templates\loading-small.html" />
+    <Content Include="templates\common\templates\modal-confirm-buttons.html" />
+    <Content Include="templates\common\templates\modal.html" />
+    <Content Include="templates\references\templates\detail\details-highlight.html" />
+    <Content Include="templates\references\templates\detail\details-title.html" />
+    <Content Include="templates\references\templates\detail\details.html" />
+    <Content Include="templates\references\templates\detail\notes-title.html" />
+    <Content Include="templates\references\templates\detail\notes.html" />
+    <Content Include="templates\references\templates\list\browse.html" />
+    <Content Include="templates\references\templates\list\search.html" />
+    <Content Include="templates\references\templates\list\title.html" />
+    <Content Include="templates\references\templates\list\tree.html" />
+    <Content Include="templates\references\templates\references.html" />
+    <Content Include="templates\references\templates\searchbar\books-error.html" />
+    <Content Include="templates\references\templates\searchbar\searchbar.html" />
+    <Content Include="templates\research\templates\drg-analyze-pane\empty.html" />
+    <Content Include="templates\research\templates\drg-analyze-pane\result.html" />
+    <Content Include="templates\research\templates\edits-pane\empty.html" />
+    <Content Include="templates\research\templates\edits-pane\result.html" />
+    <Content Include="templates\research\templates\icd10map-pane\empty.html" />
+    <Content Include="templates\research\templates\icd10map-pane\result.html" />
+    <Content Include="templates\research\templates\research-pane\empty.html" />
+    <Content Include="templates\research\templates\research-pane\result.html" />
+    <Content Include="templates\research\templates\research.html" />
+    <Content Include="views\codeBooks-references-integration.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="public\css\" />
+    <Folder Include="public\css\img\" />
+    <Folder Include="public\css\img\icons\" />
+    <Folder Include="public\css\img\textures\" />
+    <Folder Include="public\css\less-source\" />
+    <Folder Include="license-agreements\" />
+    <Folder Include="node_modules\" />
+    <Folder Include="node_modules\ejs\" />
+    <Folder Include="node_modules\ejs\examples\" />
+    <Folder Include="node_modules\ejs\lib\" />
+    <Folder Include="node_modules\ejs\support\" />
+    <Folder Include="node_modules\ejs\test\" />
+    <Folder Include="node_modules\ejs\test\fixtures\" />
+    <Folder Include="node_modules\ejs\test\fixtures\includes\" />
+    <Folder Include="node_modules\ejs\test\fixtures\includes\menu\" />
+    <Folder Include="node_modules\mssql\" />
+    <Folder Include="node_modules\mssql\lib\" />
+    <Folder Include="node_modules\mssql\node_modules\" />
+    <Folder Include="node_modules\mssql\node_modules\generic-pool\" />
+    <Folder Include="node_modules\mssql\node_modules\generic-pool\lib\" />
+    <Folder Include="node_modules\mssql\node_modules\generic-pool\test\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\lib\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\lib\token\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\lib\tracking-buffer\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\lib\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\big-number\test\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\encodings\tables\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\iconv-lite\lib\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\sprintf\" />
+    <Folder Include="node_modules\mssql\node_modules\tedious\node_modules\sprintf\lib\" />
+    <Folder Include="node_modules\mssql\src\" />
+    <Folder Include="node_modules\node-static\" />
+    <Folder Include="node_modules\node-static\benchmark\" />
+    <Folder Include="node_modules\node-static\bin\" />
+    <Folder Include="node_modules\node-static\examples\" />
+    <Folder Include="node_modules\node-static\lib\" />
+    <Folder Include="node_modules\node-static\lib\node-static\" />
+    <Folder Include="node_modules\node-static\node_modules\" />
+    <Folder Include="node_modules\node-static\node_modules\colors\" />
+    <Folder Include="node_modules\node-static\node_modules\colors\themes\" />
+    <Folder Include="node_modules\node-static\node_modules\mime\" />
+    <Folder Include="node_modules\node-static\node_modules\mime\types\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\example\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\node_modules\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\example\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\node_modules\minimist\test\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\example\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\node_modules\wordwrap\test\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\test\" />
+    <Folder Include="node_modules\node-static\node_modules\optimist\test\_\" />
+    <Folder Include="node_modules\node-static\test\" />
+    <Folder Include="node_modules\node-static\test\fixtures\" />
+    <Folder Include="node_modules\node-static\test\fixtures\there\" />
+    <Folder Include="node_modules\node-static\test\integration\" />
+    <Folder Include="proxy\" />
+    <Folder Include="templates\" />
+    <Folder Include="templates\codebooks\" />
+    <Folder Include="templates\codebooks\templates\" />
+    <Folder Include="templates\codebooks\templates\index\" />
+    <Folder Include="templates\codebooks\templates\searchbar\" />
+    <Folder Include="templates\codebooks\templates\tableHeadings\" />
+    <Folder Include="templates\codebooks\templates\tabular\" />
+    <Folder Include="templates\common\" />
+    <Folder Include="templates\common\templates\" />
+    <Folder Include="templates\references\" />
+    <Folder Include="templates\references\templates\" />
+    <Folder Include="templates\references\templates\detail\" />
+    <Folder Include="templates\references\templates\list\" />
+    <Folder Include="templates\references\templates\searchbar\" />
+    <Folder Include="templates\research\" />
+    <Folder Include="templates\research\templates\" />
+    <Folder Include="templates\research\templates\drg-analyze-pane\" />
+    <Folder Include="templates\research\templates\edits-pane\" />
+    <Folder Include="templates\research\templates\icd10map-pane\" />
+    <Folder Include="templates\research\templates\research-pane\" />
+    <Folder Include="_tmp" />
+    <Folder Include="bin" />
+    <Folder Include="data" />
+    <Folder Include="data\journal" />
+    <Folder Include="public" />
+    <Folder Include="public\javascripts" />
+    <Folder Include="public\stylesheets" />
+    <Folder Include="routes" />
+    <Folder Include="views" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

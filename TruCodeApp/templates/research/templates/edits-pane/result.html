@@ -1,0 +1,49 @@
+﻿<div class="edits-content content">
+    <% _.each(keys, function(key) { %>
+    <div class="accordion-group <%= key %>">
+        <div class="section-heading accordion-heading <% if (groups[key].length > 0) { print('collapsible'); } else { print('empty'); } %>">
+            <div class="accordion-toggle">
+                <a href="javascript:void(0)" class="section-expander">
+                    <span class="toggle-icon k-icon <% if (groups[key].length > 0) { print('k-minus'); } else { print('k-plus'); } %>"></span>
+                    <span class="section-title"><%= TextEdits[key] || key %></span>
+                </a>
+            </div>
+        </div>
+        <div class="section-items accordion-body<% if (groups[key].length === 0) { print(' hide'); } %>">
+            <div class="accordion-inner">
+                <ul class="<%= key.toLowerCase() %>">
+                    <% _.each(groups[key], function(item) { %>
+                        <% if (item.type === 'MNE') { %>
+                    <li class="type-<%= item.type %>"><%= item.intro %>
+                        <p><a class="details" href="javascript:void(0)">details...</a><span class="spacer"> | </span><a class="policy" data-article-id="<%= item.article_id %>" href="javascript:void(0)">policy...</a></p>
+                        <div class="details-content warning hide">
+                            <p><strong>Policy ID:</strong> <span><%= item.policy_id %></span></p>
+                            <p><strong>Policy Title:</strong> <span><%= item.policy_title %></span></p>
+                            <p><strong>Fiscal Intermediary/MAC:</strong> <span><%= item.fi_number %> &mdash; <%= item.fi_name %></span></p>
+                            <p><strong>Notes:</strong> <span><%= item.notes %></span></p>
+                            <p>
+                                <strong>Covered</strong> <em>(with frequency requirements)</em><strong>:</strong>
+                                <% _.each(item.diagnosis_groups, function(group) { %>
+                                    <% var clen = group.codes.length; %>
+                                    <% _.forEach(group.codes, function(gcode, i) { %>
+                                        <a class="code" href="javascript:void(0)" data-code-type="ICD9CM_DX"><%= gcode.start_code %></a><% if (clen > 1 && i < clen - 1) print(', '); %>
+                                    <% }); %>
+                                <% }); %>
+                            </p>
+                        </div>                        
+                    </li>
+                        <% } else { %>
+                    <li class="type-<%= item.type %>"><%= item.description %><% if (item.source_data) { %> <em class="source"><%= item.source_data %></em><% } %>                        
+                        <% if (item.details) { %>
+                        <p><a class="details" href="javascript:void(0)">details...</a></p>
+                        <div class="details-content warning hide<% if (key === 'RAC') { print( ' notification'); } %>"><%= item.details %></div>
+                        <% } %>
+                    </li>
+                        <% } %>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+</div>

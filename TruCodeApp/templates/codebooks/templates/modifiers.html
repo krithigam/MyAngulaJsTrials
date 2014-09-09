@@ -1,0 +1,16 @@
+﻿<div class="codebooks">
+    <div class="modifiers-content">
+        <% var currentCategory = ''; %>
+<% _.each(modifiers, function(modifier) { %>
+    <% if (modifier.category !== currentCategory) {
+        currentCategory = modifier.category; %>
+        <h1 class="category"><%= modifier.category %></h1>
+        <% } %>
+    <div class="modifier">
+        <span class="modifier-code modifier-code-<%= modifier.code %>"><%= modifier.code %></span>
+        <p class="modifier-description"><%= modifier.long_description %></p>
+        <p class="modifier-note"><%= modifier.note %></p>
+    </div>
+        <% }); %>
+    </div>
+</div>

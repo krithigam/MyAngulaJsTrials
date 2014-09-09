@@ -1,0 +1,47 @@
+﻿<div class="k-content codebooks">
+    <div class="codebooks-wrap splitter-wrap">
+        <div>
+            <div class="searchbar" data-pane-index="10"></div>
+        </div>
+        <div class="bottom-wrap">
+            <div class="results-wrap">
+                <div class="index-wrap">
+                    <div>
+                        <div class="index-header"></div>
+                    </div>
+                    <div class="index-mid-wrap pane-scrollable">
+                        <div class="index-results" data-pane-index="20">
+                            <div class="pane-content pane-text pane-slim-n default-pane<% if (!hideResearch) { print(' pane-slim-e'); } %>"></div>
+                            <div class="pane-content pane-text pane-slim-n pcs-pane<% if (!hideResearch) { print(' pane-slim-e'); } %>" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabular-wrap">
+                    <div>
+                        <div class="tabular-header"></div>
+                    </div>
+                    <div>
+                        <div class="tabular-results pane-scrollable" data-pane-index="30">
+                            <div class="pane-content pane-text pane-slim-n<% if (!hideResearch) { print(' pane-slim-e'); } %>"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% if (!hideResearch) { %>
+            <div>
+                <div class="research-outer-wrap">
+                    <!-- splitter -->
+                    <div class="research-wrap">
+                        <div class="pane-content pane-slim-e pane-slim-s pane-slim-w">
+                            <div class="heading-slim">Research</div>
+                        </div>
+                        <div class="research-mid-wrap pane-scrollable">
+                            <div class="research-pane-wrap pane-content pane-slim" data-pane-index="40"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>

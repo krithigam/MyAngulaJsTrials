@@ -1,0 +1,27 @@
+﻿<% switch (colNum) { 
+    case 1: { %>
+    <div class="pcs-column-head first">
+        <div><% if (sections.columns) { %><%= sections.columns[0].header %><% } else { %>Section<% } %></div>
+    </div>
+    <% }
+    break;
+    case 4: { %>
+    <div class="pcs-column-head pivot">
+        <div><%= column.header %></div>
+        <span class="icon-pivot icon-right-small"></span>
+    </div>
+    <% }
+    break;
+    case 7: { %>
+    <div class="pcs-column-head last">
+        <div><%= column.header %></div>
+    </div>
+    <% }
+    break;
+    default: { %>
+    <div class="pcs-column-head">
+        <div><%= column.header %></div>
+    </div>
+    <% }
+    break;
+} %>

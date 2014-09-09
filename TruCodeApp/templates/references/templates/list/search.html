@@ -1,0 +1,147 @@
+﻿<div class="pane-content pane-slim-n pane-slim-e pane-text search" style="height: <%= resultsHeight %>">
+<% _.each(results, function(group) { %>
+
+    <!-- CDR only supports code searching -->
+
+    <% switch (group.book) {
+        case 'DRUGS': { %>
+            <div class="accordion-group">
+                <div class="section-heading accordion-heading<% if (group.results.length > 0) { print(' collapsible'); } else { print(' empty'); } %>">
+                    <div class="accordion-toggle">
+                        <a href="javascript:void(0)" class="section-expander">
+                            <span class="toggle-icon k-icon k-minus"></span>
+                            <span class="section-title"><%= group.name || TextBook[group.book] || group.book %></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="section-items accordion-body">
+                    <div class="accordion-inner">
+                    <% if (group.results.length === 0) { %>
+                        <div class="not-found"><em>The terms you entered could not be found.</em></div>
+                    <% } %>
+                    <% _.each(group.results, function(articleGroup) { %>
+                        <ul data-book="<%= group.book %>"<% if (group.type === 'indication') { print(' class="indication-group"'); } else { print(' class="results-' + articleGroup.name.toLowerCase() + '"'); } %>>
+                        <% if (group.type === 'indication') { %>
+                            <li class="indication"><span class="k-icon k-plus"></span><span class="indication-group-name"><%= articleGroup.name %></span>
+                                <ul>
+                            <% _.forEach(articleGroup.articles, function(article, i) { %>
+                                    <li id="indication-<%= article.article_id %>" class="indication-child<% if (i === 0) { print(' first'); } %><% if (i === articleGroup.articles.length - 1) { print(' last'); } %>" data-article-id="<%= article.article_id %>"><a href="javascript:void(0)"><%= article.article_title.replace(/(\w)([\\\/])(\w)/g, "$1 $2 $3") %></a></li>
+                            <% }); %>
+                                </ul>
+                            </li>
+                        <% } else { %>
+                            <% _.each(articleGroup.articles, function(article) { %>
+                            <li id="article-<%= article.article_id %>" data-book="<%= group.book %>" data-article-id="<%= article.article_id %>" title="<%= articleGroup.name %> Result">
+                                <a href="javascript:void(0)"><%= article.article_title.replace(/(\w)([\\\/])(\w)/g, "$1 $2 $3") %></a></em>
+                            </li>
+                            <% }); %>
+                        <% } %>
+                        </ul>
+                    <% }); %>
+                    </div>
+                </div>
+            </div>   
+        <% }
+        break;
+        case 'DICTIONARY': { %>
+            <% if (group.results.length === 0) { %>
+                <div class="not-found"><em>The terms you entered could not be found.</em></div>
+            <% } %>
+            <% _.each(group.results, function(articleGroup) { %>
+                <ul data-book="<%= group.book %>" class="results-<%= articleGroup.name.toLowerCase() %>">
+                <% _.each(articleGroup.articles, function(article) { %>
+                    <li id="article-<%= article.article_id %>" data-book="<%= group.book %>" id="article-<%= article.article_id %>" data-article-id="<%= article.article_id %>" title="<%= articleGroup.name %> Result">
+                        <a href="javascript:void(0)"><%= article.article_title.replace(/(\w)([\\\/])(\w)/g, "$1 $2 $3") %></a></em>
+                    </li>
+                <% }); %>
+                </ul>
+            <% }); %>
+        <% }
+        break;
+        case 'INTERVENTIONAL_RADIOLOGY': { %>
+            <% if (group.type === 'code') { %>
+            <div class="accordion-group">
+                <div class="section-heading accordion-heading<% if (group.results.length > 0) { print(' collapsible'); } else { print(' empty'); } %>">
+                    <div class="accordion-toggle">
+                        <a href="javascript:void(0)" class="section-expander">
+                            <span class="toggle-icon k-icon k-minus"></span>
+                            <span class="section-title"><%= TextBook[group.name] || TextBook[group.book] || group.name || group.book %></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="section-items accordion-body">
+                    <div class="accordion-inner">
+            <% } %>
+
+                    <% if (group.results.length === 0) { %>
+                        <% if (group.type === 'code') { %>
+                        <div class="not-found"><em>The code you entered could not be found.</em></div>
+                        <% } else { %>
+                        <div class="not-found"><em>The terms you entered could not be found.</em></div>
+                        <% } %>
+                    <% } %>
+                    <% _.each(group.results, function(articleGroup) { %>
+                        <ul data-book="<%= group.book %>" class="results-<%= articleGroup.name.toLowerCase() %>">
+                        <% _.each(articleGroup.articles, function(article) { %>
+                            <li id="article-<%= article.article_id %>" data-issue-title="<%= article.details.issue_title %>" data-book="<%= group.book %>" data-issue-year="<%= article.details.issue_year %>" data-article-id="<%= article.article_id %>" title="<%= articleGroup.name %> Result">
+                                <a href="javascript:void(0)"><%= article.article_title.replace(/(\w)([\\\/])(\w)/g, "$1 $2 $3") %></a>, <em><%= article.details.issue_year %></em>
+                            </li>
+                        <% }); %>
+                        </ul>
+                    <% }); %>
+
+            <% if (group.type === 'code') { %>
+                    </div>
+                </div>
+            </div>       
+            <% } %>
+    
+        <% }
+        break;
+        default: { %>
+            <% if (group.type === 'code') { %>
+            <div class="accordion-group">
+                <div class="section-heading accordion-heading<% if (group.results.length > 0) { print(' collapsible'); } else { print(' empty'); } %>">
+                    <div class="accordion-toggle">
+                        <a href="javascript:void(0)" class="section-expander">
+                            <span class="toggle-icon k-icon k-minus"></span>
+                            <span class="section-title"><%= TextBook[group.name] || TextBook[group.book] || group.name || group.book %></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="section-items accordion-body">
+                    <div class="accordion-inner">
+            <% } %>
+
+                    <% if (group.results.length === 0) { %>
+                        <% if (group.type === 'code') { %>
+                        <div class="not-found"><em>The code you entered could not be found.</em></div>
+                        <% } else { %>
+                            <% if (group.book === 'CDR') { %>
+                            <div class="not-found"><em>This reference cannot be searched by term. Please enter a full or partial CPT code.</em></div>
+                            <% } else { %>
+                            <div class="not-found"><em>The terms you entered could not be found.</em></div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                    <% _.each(group.results, function(articleGroup) { %>
+                        <ul data-book="<%= group.book %>" class="results-<%= articleGroup.name.toLowerCase() %>">
+                        <% _.each(articleGroup.articles, function(article) { %>
+                            <li id="article-<%= article.article_id %>" data-issue-title="<%= article.details.issue_title %>" data-book="<%= group.book %>" data-issue-year="<%= article.details.issue_year %>" data-article-id="<%= article.article_id %>" title="<%= articleGroup.name %> Result">
+                                <a href="javascript:void(0)"><%= article.article_title.replace(/(\w)([\\\/])(\w)/g, "$1 $2 $3") %></a>, <em><%= article.details.issue_title %></em>
+                            </li>
+                        <% }); %>
+                        </ul>
+                    <% }); %>
+
+            <% if (group.type === 'code') { %>
+                    </div>
+                </div>
+            </div>       
+            <% } %>
+    
+        <% }
+        break;
+    } %>
+<% }); %>
+</div>

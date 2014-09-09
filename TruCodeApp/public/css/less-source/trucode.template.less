@@ -1,0 +1,242 @@
+﻿.inactive() {
+	background-color: @highlighted-item-inactive-background-color;
+    border: 1px solid @highlighted-item-inactive-border-color;
+	border-width: 1px 0; // avoid wraps when content is 1-2px away from wrapping
+	color: @highlighted-item-inactive-text-color;
+}
+.active() {
+    background-color: @highlighted-item-background-color;
+    border-color: @highlighted-item-border-color;
+    color:@highlighted-item-text-color;
+}
+
+.trucode {
+    color: @default-text-color;
+}
+
+.trucode .codebooks,
+.trucode .references,
+.trucode .research-pane { background-image: url(../img/version.png?v=3.1.0.363); }
+
+.trucode {
+    a {
+        color: @default-link-color;
+    }
+
+    a:hover {
+        color: @default-link-hover-color;
+    }
+
+    .code,
+    .code-text,
+    .reference,
+    .seeAlsoLink,
+    .research-pane a,
+    a.modifier {
+        color: @code-link-color;
+        font-weight: normal;
+        cursor: pointer;
+
+        &:active, &:focus, &:hover {
+            color: @code-link-hover-color;
+        }
+    }
+
+    .codes-wrapper .code,
+    .instructional-note-content .code-range {
+        font-weight: bold;
+    }
+
+    .code-active {
+        color: @code-link-hover-color;
+    }
+    .accordion-toggle .section-expander {
+        color: @section-expander-text-color;
+    }
+    .item-selected {
+        .inactive();
+    }
+
+    .active-area .inactive .item-selected {
+        .inactive();
+    }
+
+    .active-area .item-selected {
+        .active();
+    }
+    .active-area .active.extra-action .item-selected {
+        background-color: @highlighted-item-background-color;
+    }
+
+    .heading, .heading-slim {
+        background-color: @primary-background-color;
+        color: @primary-text-color;
+    }
+    .heading-nobg {
+        background-color: transparent;
+        color: @default-text-color;
+    }
+    .heading-alt {
+        background-color: @secondary-background-color;
+        border-color: @primary-background-color;
+    }
+    .warning {
+        background-color: @error-background-color;
+    }
+
+    .notification {
+        background-color: @research-pane-drg-warning-background-color;
+        color: @research-pane-drg-warning-text-color;
+    }
+
+    .hilite, .hilite:hover {
+        background-color: @references-term-highlight-background-color;
+    }
+
+    .dialog-confirm {
+        border-top-color: @primary-background-color;
+    }
+    .pane-text {
+        border-color: @primary-background-color;
+        background-color: @pane-content-background-color;
+    }
+    .accordion-group {
+        border-color: @primary-background-color;
+    }
+
+    .section-heading.collapsed {
+        background-color: @accordion-section-collapsed-background-color;
+    }
+
+    .section-heading.empty {
+        background-color: @accordion-section-disabled-background-color;
+    }
+
+    .section-heading.empty a {
+        color: @accordion-section-disabled-text-color;
+    }
+
+    .accordion-inner {
+        border-top: @accordion-section-title-content-separator;
+    }
+    .codebooks {
+        
+        #column-labels,
+        .tabular-table th {
+            background-color: @codebooks-dynamic-table-heading-background-color;
+        }
+
+        .type-coderange {
+            .parts {
+                color: @default-link-color;
+            }
+        }
+
+        .type-tablerowchannelpublishing.item-selected,
+        .type-tablerow.item-selected {
+            background-color: @selected-background-color;
+        }
+        
+        .partial-code-result {
+            color: @secondary-text-color;
+        }
+
+        .searchbar .pane-content,
+        .pcs-overview,
+        .tabular-table tr.odd td {
+            background-color: @secondary-background-color;
+            color: @secondary-text-color;
+        }
+
+        .pcs-column-head {
+            background-color: @codebooks-pcs-column-heading-background-color;
+            color: @codebooks-pcs-column-heading-text-color;
+         }
+        
+        .pcs-column.active .pcs-column-head {
+            background-color: @codebooks-pcs-column-heading-active-background-color;
+            color: @codebooks-pcs-column-heading-active-text-color;
+        }
+
+        .pcs-column .pane-body,
+        .pcs-column-choices,
+        .pcs-column-choices .not-selected {
+            background-color: @pane-content-background-color;
+        }
+
+        .pcs-column-head,
+        .pcs-column-choices > div {
+            border-left-color: @primary-background-color;
+        }
+
+        .pcs-outer {
+            border-right-color: @primary-background-color;
+        }
+
+        .pcs.pane-content {
+            border-color: @primary-background-color;
+        }
+
+        .research-pane-wrap {
+            background-color: @research-pane-active-tab-background-color;
+            border-color: @primary-background-color;
+        }
+
+        .show-modifiers {
+            color: @show-modifiers-link-color;
+        }
+    }
+    .references {
+        .hilite, .hilite:hover {
+            background-color: @references-term-highlight-background-color;
+            color: @references-term-highlight-text-color;
+        }
+
+        .hilite.selected {
+            background-color: @references-term-highlight-selected-background-color;
+            color: @references-term-highlight-selected-text-color;
+        }
+
+        .detail-title .border,
+        .tc_drug_section_hdr,
+        ul.tc_drug_list {
+            border-color: @primary-background-color;
+        }
+
+        .detail-highlight .actions {
+            color: @primary-background-color;
+        }
+
+        .list-browse .pane-content,
+        .searchbar .pane-content {
+            background-color: lighten(@secondary-background-color, 15%);
+        }
+
+        .detail-title .control-group,
+        .tc_drug_section_hdr.collapsed,
+        &.searching .searchbar .pane-content,
+        &.browsing .list-browse .pane-content {
+            background-color: @secondary-background-color;
+            color: @secondary-text-color;
+        }
+    }
+    .research-pane {
+        .heading {
+            color: @primary-background-color;
+        }
+        .drg-wrap {
+            background-color: @secondary-background-color;
+        }
+        .icd10map-content .original-code {
+            background-color: @research-pane-icd10-original-code-background-color;
+        }
+        .source {
+            color: @research-pane-source-text-color;
+        }
+        a.details,
+        a.policy {
+            font-weight: normal;
+            font-style: italic;
+        }
+    }
+}

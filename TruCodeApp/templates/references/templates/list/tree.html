@@ -1,0 +1,15 @@
+﻿<div class="pane-content pane-slim-n pane-slim-e pane-text tree" style="height: <%= resultsHeight %>">
+    <div class="tree k-content">
+        <ul class="treeview">
+        <% if (data) { %>
+            <% _.each(data.Years, function(year) { %>
+            <li data-book="<%= data.Book %>" data-year="<%= year %>"><%= year %>
+                <ul>
+                    <li><span class="k-loading k-icon tc-loading"></span></li>
+                </ul>
+            </li>
+            <% }); %>
+        <% } %>
+        </ul>
+    </div>
+</div>

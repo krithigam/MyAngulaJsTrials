@@ -1,0 +1,24 @@
+﻿<% _.each(records, function(record) { %>
+    <div class="tabular-result tabular-hcpcs-result type-<%= record.recordType %> level-<%= record.record.level %><% if (record.record.subtypes && record.record.subtypes.length) { _.each(record.record.subtypes, function(st) { print(' subtype-' + st.name); }); } %><% if (record.record.hasinstructionalnotes) { print (' inote'); } %><% if (record.selectable) { print(' selectable'); } %>" id="tabular-<%= record.data_sequence %>" data-book="<%= record.data_book %>" data-sequence="<%= record.data_sequence %>" data-date="<%= record.data_date %>">
+    <% switch (record.recordType) {
+        case 'section': { %>
+        <h1><%= record.record.content %></h1>
+        <% }
+        break;
+        default: { %>
+        <div class="icon-wrapper col padded">
+            <span class="new-icon icon" title="New Code"></span>
+            <span class="modified-icon icon" title="Revised Code"></span>
+        </div>
+        <div class="codes-wrapper col">
+            <span class="codes"><a href="javascript:void(0)" class="code primary-code default-target"><%= record.record.code %></a></span>
+        </div>
+        <div class="parts-wrapper">
+            <div class="images-wrapper"></div>
+            <span class="parts"><%= record.record.content %></span>
+        </div>
+        <% }
+        break;
+    } %>
+    </div>
+<% }); %>

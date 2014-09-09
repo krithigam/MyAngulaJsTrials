@@ -1,0 +1,20 @@
+﻿<div class="pcs pane-content pane-slim-n pane-slim-s<% if (!hideResearch) { print(' pane-slim-e'); } %>">
+    <input type="text" class="pcsHelper" style="position:absolute;top:-2000px;right:0;z-index:-100" />
+    <div class="pcs-outer">
+        <!-- splitter -->
+        <div class="pcs-inner">
+            <% for (var i = 1; i <= 7; i++) { %>
+            <!-- pane -->
+            <div class="pcs-pane">
+                <!-- splitter -->
+                <div class="pcs-column inactive<% if (i === 1) { print(' extra-action'); } %>" data-col="<%= i %>">
+                    <!-- pane -->
+                    <div class="pane-head"></div>
+                    <!-- pane -->
+                    <div class="pane-body"></div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>

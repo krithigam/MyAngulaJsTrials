@@ -1,0 +1,28 @@
+﻿<% if (data.showPartial && data.sections.columns) { %>
+<div class="index-result partial-code-result" data-book="<%= data.book %>">
+    <span><span class="code"><%= data.partial %></span> <strong>&#58;</strong> <em>view in <%= TextBook.MAP_ICD10PCS_PR %> table, &quot;<%= _.findWhere(data.sections.columns[0].choices, { char: data.partial.charAt(0) }).label %>&quot;</em></span>
+</div>
+<% } %>
+<%_.forEach(data.records, function(record, i) { %>
+    <% if (i === 3 && !data.wasFindAllSearch) { %>
+    <a class="index-overflow-link" href="javascript:void(0)">Show all <%= data.records.length %> search results</a>
+    <div class="index-overflow">
+    <% } %>
+        <div class="index-result" id="index-<%= record.data_sequence %>" data-book="<%= record.data_book %>" data-sequence="<%= record.data_sequence %>" data-date="<%= record.data_date %>">
+            <span class="text"><%= record.text %></span>
+            <span class="codes">
+            <% if (typeof record.type ==='undefined' || record.type !== 'tablerow') { %>
+                <%_.forEach(record.codes, function(rowCode, i) { %>
+                    <% if (i === 0) { %>
+                <span class="code"><%= rowCode %></span>
+                    <% } else { %>
+                [<span class="code bracketed"><%= rowCode %></span>]
+                    <% } %>
+                <% }); %>
+            <% } %>
+            </span>
+        </div>
+    <% if (i >= 3 && i + 1 === data.records.length && !data.wasFindAllSearch) { %>
+    </div>
+    <% } %>
+<% }); %>

@@ -1,0 +1,16 @@
+﻿<% var randomId = Math.random().toString().replace('0.',''); %>
+<div class="pane-content form-inline">
+    <label for="search-box-<%= randomId %>" class="pad-right">Search for</label>
+    <input class="search-box k-input" id="search-box-<%= randomId %>" type="text" placeholder="search terms or code..." />
+    <span class="pad-right pad-left">in</span>
+    <select class="book-list">
+        <% _.each(books, function(item) { %>
+        <option value="<%= item.id %>"><%= item.title %></option>
+        <% }); %>
+    </select>
+    <button type="submit" class="search-btn k-button pad-left"<% if (books.length === 0) print(' disabled="disabled"'); %>>Search</button>
+
+    <% if (books.length === 0) { %>
+    <span class="k-loading k-icon tc-loading">Loading</span>
+    <% } %>
+</div>

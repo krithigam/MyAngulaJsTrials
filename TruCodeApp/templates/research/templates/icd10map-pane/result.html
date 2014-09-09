@@ -1,0 +1,41 @@
+﻿<div class="icd10map-content content content-full pane-text pane-full-border">
+    <div class="heading">ICD-10 Code Mapping</div>
+    <div class="original-code">
+        <div class="icd9-code">ICD-9 CM Code</div>
+        <div class="code-wrap"><a class="code" href="javascript:void(0)" data-book="<%= data.icd9_code.code_type %>"><%= data.icd9_code.value %></a> <span class="description"><%= data.icd9_code.medium_description %></span></div>
+    </div>
+
+    <div class="scenario-wrapper">
+    <% var scenarioLength = data.scenarios.length; %>
+    <% if (scenarioLength > 1) { %>
+        <p class="alert notification">Please choose one of the scenarios below, following the instruction for that specific scenario.</p>
+    <% } %>
+    <% _.forEach(data.scenarios, function(scenario, h) { %>
+        <% var scenarioCodeListLength = scenario.codelists.length; %>
+        <div class="scenario">
+            <% if (scenarioLength > 1) { %>
+            <div class="scenario-title">Scenario <%= h + 1 %></div>
+                <% if (scenarioCodeListLength > 1) { %>
+            <p class="instruction">The single most appropriate <%= TextBook['MAP_' + data.scenarios[0].code_type] || 'ICD-10-CM' %> code from each of the lists should be selected.</p>
+                <% } else { %>
+            <p class="instruction">The single most appropriate <%= TextBook['MAP_' + data.scenarios[0].code_type] || 'ICD-10-CM' %> code should be selected.</p>
+                <% } %>
+            <% } %>
+            <div class="scenario-title"><%= TextBook['MAP_' + scenario.code_type] || 'ICD-10-CM' %> Code(s)</div>
+            <% if (scenarioLength === 1) { %>            
+                <% if (scenarioCodeListLength > 1) { %>
+                <p class="instruction">The single most appropriate <%= TextBook['MAP_' + data.scenarios[0].code_type] || 'ICD-10-CM' %> code from each of the lists should be selected.</p>
+                <% } else { %>
+                <p class="instruction">The single most appropriate <%= TextBook['MAP_' + data.scenarios[0].code_type] || 'ICD-10-CM' %> code should be selected.</p>
+                <% } %>
+            <% } %>
+            <% _.forEach(scenario.codelists, function(codelistWrapper, i) { %>
+                <% if (scenarioCodeListLength > 1) { %><span class="list-label">List <%= i + 1 %></span><% } %>
+                <% _.each(codelistWrapper.codelist, function(cl) { %>
+                    <div class="code-wrapper"><a class="code" href="javascript:void(0)" data-book="<%= cl.code_type %>"><%= cl.value %></a> <span><%= cl.medium_description %></span></div>
+                <% }); %>
+            <% }); %>
+        </div>
+    <% }); %>
+    </div>
+</div>

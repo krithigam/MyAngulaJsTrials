@@ -1,0 +1,12 @@
+﻿<div class="pane-content">
+    <div class="button-holder">
+        <select class="book-list ddl-menu">
+            <option value="-1">Browse...</option>
+    <% if (canListBooks.length > 0) { %>
+        <% _.each(canListBooks, function(item) { %>
+            <option value="<%= item.id %>">Browse <%= item.title %></option>
+        <% }); %>
+    <% } %>
+        </select>
+    </div>
+</div>

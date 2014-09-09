@@ -1,0 +1,24 @@
+﻿<% var randomId = Math.random().toString().replace('0.',''); %>
+<div class="pane-content form-inline">
+    <label for="search-box-<%= randomId %>" class="pad-right">Search for</label>
+    <input class="search-box k-input" id="search-box-<%= randomId %>" type="text" placeholder="search terms or code...">
+    <span class="pad-right pad-left">in</span>
+    <select class="book-list">
+        <% this.codeBooks.each(function(item) { %>
+        <option value="<%= item.get('id') %>"><%= item.get('title') %></option>
+        <% }); %>
+    </select>
+    <button type="submit" class="search-btn k-button pad-left" disabled="disabled">Search</button>
+    <div class="search-options">
+        <label class="checkbox find-all" style="display:none">
+            <input type="checkbox" value="FindAll" /> Find All
+        </label>
+        <label class="checkbox use-anesthesia" style="display:none">
+            <input type="checkbox" value="UseAnesthesiaCodes" /> Include Anesthesia Codes
+        </label>
+    </div>
+    <div class="additional-reference">
+        <a href="javascript:void(0)" class="show-modifiers" style="display:none">Modifiers</a>
+    </div>
+    <span class="tc-loading k-loading k-icon">Loading</span>
+</div>

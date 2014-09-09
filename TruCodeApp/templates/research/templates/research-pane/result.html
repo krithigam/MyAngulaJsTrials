@@ -1,0 +1,89 @@
+﻿<div class="research-content content <%= data.codeType.toLowerCase() %> coding-level-<%= codingLevel %><% if (hiddenSections.length > 0) { print(' ' + hiddenSections); } %><% if (encounterType) { print(' ' + encounterType); } %>">
+    <% _.each(sections, function(section) { %>
+    <div class="accordion-group <%= section.sectionType %><% if (section.itemCount) { print(' selectable'); } %>">
+        <div class="section-heading accordion-heading <% if (section.itemCount) { print('collapsible'); } else { print('empty'); } %>">
+            <div class="accordion-toggle">
+                <a href="javascript:void(0)" class="section-expander">
+                    <span class="toggle-icon k-icon <% if (section.itemCount) { print('k-minus'); } else { print('k-plus'); } %>"></span>
+                    <span class="section-title"><%= TextBook[section.sectionType] || section.sectionType %></span>
+                </a>
+            </div>
+        </div>
+        <div class="section-items accordion-body<% if (section.itemCount === 0) { print(' hide'); } %>">
+            <div class="accordion-inner">
+                <ul class="<%= section.sectionType %>" data-section="<%= section.sectionType %>">
+        <% if (section.items) { %>
+            <% switch (section.sectionType) {
+                case 'CDR': { %>
+                    <% _.each(section.items, function(item) { %>
+                        <dl>
+                            <dt><a class="reference" href="javascript:void(0)" data-article-id="<%= item.id %>"><%= item.title %></a>, <em><%= item.year %></em></dt>
+                            <dd>
+                                <span class="description<% if (item.text.length > 250) { print(' hide'); } %>"><%= item.text %></span>
+                                <span class="description overflow<% if (item.text.length <= 250) { print(' hide'); } %>"><%= _.str.prune(item.text, 250, '<span class="overflow-text">...</span> <a href="javascript:void(0)" class="overflow-show">More</a>') %></span>
+                            </dd>
+                        </dl>
+                    <% }); %>
+                <% }
+                break;
+                case 'CROSSWALK':
+                case 'ANESTHESIA_CROSSWALK': { %>
+                    <% _.forEach(section.items, function(item, i) { %>
+                        <li><a class="code" href="javascript:void(0)" data-code-type="<%= item.book %>"><%= item.code %></a> <%= item.medium_description %></li>
+                    <% }); %>
+                    <% if (section.hasMore) { %><a id="show-all-crosswalk" href="javascript:void(0)">View all <%= section.sectionType == 'ANESTHESIA_CROSSWALK' ? 'anesthesia' : '' %> crosswalk results</a><% } %>
+                <% }
+                break;
+                case 'CODING_ADVICE': { %>
+                    <% _.each(section.items, function(item) { %>
+                        <li class="type-<%= item.coding_advice_type %><% if (item.is_beginner_level === true) { print(' beginner'); } %><% if (item.is_inpatient === false) { print(' not-inpatient'); } %><% if (item.is_outpatient === false) { print(' not-outpatient'); } %>"><%= item.text %> <em><%= item.source %></em></li>
+                    <% }); %>
+                <% }
+                break;
+                case 'CC_ICD9':
+                case 'CC_ICD10':
+                case 'CC_HCPCS':
+                case 'CPT_ASSISTANT':
+                case 'ICD9_GUIDELINES':
+                case 'ICD10_GUIDELINES':
+                case 'INTERVENTIONAL_RADIOLOGY':
+                default: { %>
+                   <% _.each(section.items, function(item) { %>
+                    <li><a class="reference" href="javascript:void(0)" data-article-id="<%= item.id %>"><%= item.title %></a>, <em><%= item.issue_title %></em></li>
+                    <% }); %>
+                    <% if (section.best_count === 0 && section.hasMore) { %><em>No strong matches found.</em><% } %> 
+                    <% if (section.hasMore) { %><a class="reference show-more" id="show-all-articles" href="javascript:void(0)">View all <%= section.best_count + section.other_count %> matching titles</a><% } %> 
+                <% }
+                break;
+            } %>
+        <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+    <div class="accordion-group ADDITIONAL_REFERENCES<% if (books.length > 0) { print(' selectable'); } %>">
+        <div class="section-heading accordion-heading <% if (books.length > 0) { print('collapsible'); } else { print('empty'); } %>">
+            <div class="accordion-toggle">
+                <a href="javascript:void(0)" class="section-expander">
+                    <span class="toggle-icon k-icon <% if (books.length > 0) { print('k-minus'); } else { print('k-plus'); } %>"></span>
+                    <span class="section-title"><%= TextBook.ADDITIONAL_REFERENCES %></span>
+                    <span class="section-pin"></span>
+                </a>
+            </div>
+        </div>
+        <div class="section-items accordion-body<% if (books.length === 0) { print(' hide'); } %>">
+            <div class="accordion-inner">
+                <ul>
+                    <% _.each(books, function(item) { %>
+                        <% if (item.isResource) { %>
+                            <li id="resource-<%= item.id %>" class="type-<%= item.type %>"><a class="type-<%= item.type %> resource<%= item.isProtected ? ' protected' : '' %>" href="javascript:void(0)" data-resource-id="<%= item.id %>" data-item-type="<%= item.type %>"><%= item.title %></a></li>
+                        <% } else { %>
+                            <li id="reference-<%= item.id %>" class="type-<%= item.type %>"><a class="type-<%= item.type %> reference<%= item.isProtected ? ' protected' : '' %>" href="javascript:void(0)" data-book-id="<%= item.id %>" data-item-type="<%= item.type %>"><%= item.title %></a></li>
+                        <% } %>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

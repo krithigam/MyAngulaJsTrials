@@ -1,0 +1,50 @@
+﻿<% switch (colNum) { 
+    case 1: { %>
+    <div class="pcs-column-choices first">
+        <div>
+            <div class="spacer">&nbsp;</div>
+    <% if (sections.columns) { %>
+        <% _.each(sections.columns[0].choices, function(section) { %>
+            <% if (section.label === sectionTitle) { %>
+            <div class="item-selected" aria-selected="true">
+                <a href="javascript:void(0)"><%= section.char %></a>
+                <span><%= section.label %></span>
+            </div>
+            <% } else { %>
+            <div class="not-selected">
+                <a href="javascript:void(0)"><%= section.char %></a>
+                <span><%= section.label %></span>
+            </div>
+            <% } %>
+        <% }); %>
+    <% } else { %>
+            <div class="item-selected" aria-selected="true">
+                <a href="javascript:void(0)"></a>
+                <span><%= sectionTitle %></span>
+            </div>
+    <% } %>
+        </div>
+    </div>
+    <% }
+    break;
+    default: { %>
+    <div class="pcs-column-choices<% if (colNum === 7) { print(' last'); } %>">
+        <div>
+        <% if (colNum === code.length + 1) { %>
+            <div class="spacer item-selected" aria-selected="true">&nbsp;</div>
+        <% } else { %>
+            <div class="spacer">&nbsp;</div>
+        <% } %>
+        <% _.each(column.choices, function(choice) { %>
+            <% if (choice) { %>
+            <div<% if (code[colNum - 1] === choice.char) { print(' class="item-selected" aria-selected="true"'); } else { print(' class="not-selected"'); } %>>
+                <a href="javascript:void(0)"><%= choice.char %></a>
+                <span><%= choice.label %></span>
+            </div>
+            <% } %>
+        <% }); %>
+        </div>
+    </div>
+    <% }
+    break;
+} %>

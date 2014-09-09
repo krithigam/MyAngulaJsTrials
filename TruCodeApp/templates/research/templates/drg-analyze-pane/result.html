@@ -1,0 +1,37 @@
+﻿<div class="drg-analyze-content content content-full pane-text pane-full-border">
+    <div class="heading">Suggested DRGs for <%= data.initial_drg %></div>
+    <% _.each(data.suggestions, function(suggestion) { %>
+    <div class="alternative">
+        <div class="drg-wrap">
+            <div class="drg"><%= suggestion.suggested_drg %></div>
+            <div class="description"><%= suggestion.drg_description %></div>
+            <div class="weight">(Wt: <%= suggestion.drg_weight %>)</div>
+        </div>
+        <% _.each(suggestion.requirements, function(requirement) { %>
+        <div class="requirement">
+            <strong>Requirement</strong>
+            <p><%= requirement.description %></p>
+            <% _.each(requirement.codelists, function(codelistWrapper) { %>
+                <% var len = (codelistWrapper.codelist && codelistWrapper.codelist.length) ? codelistWrapper.codelist.length : 0; %>
+                <% if (len > 0) { %>
+                    <strong>Codes</strong>
+                    <% if (codelistWrapper.display_name) { %><p><%= codelistWrapper.display_name %></p><% } %>
+                    <% _.forEach(codelistWrapper.codelist, function(code, i) { %>
+                        <% if (i === 9) { %>
+                            <a class="show-all" href="javascript:void(0)">Show all <%= len %> codes</a>
+                            <div class="overflow hide">
+                        <% } %>
+                        <div class="code-wrapper">
+                            <a class="code" href="javascript:void(0)" data-code-type="<%= code.code_type %>"><%= code.value %></a> <span><%= code.medium_description %></span>
+                        </div>
+                        <% if (i > 8 && i + 1 === len) { %>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                <% } %>
+        <% }); %>
+        </div>
+        <% }); %>
+    </div>
+    <% }); %>
+</div>

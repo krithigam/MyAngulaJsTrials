@@ -1,0 +1,146 @@
+﻿// Global kendo overrides
+.k-window-content {
+    background-color: @modal-background-color;
+}
+
+.k-button:hover
+{
+    color: @button-text-color;
+    background-image: none;
+    border-color: lighten(@widget-border-color, 15%);
+    background-color: lighten(@button-background-color, 15%);
+}
+
+.k-button.k-state-disabled:hover,
+.k-state-disabled .k-button:hover,
+.k-button.k-state-disabled:active,
+.k-state-disabled .k-button:active
+{
+    color: @button-text-color;
+    border-color: @widget-border-color;
+    background-color: @button-background-color;
+    background-image: none;
+}
+
+.k-input:focus, .k-input:hover {
+    border-color: @highlighted-item-border-color;
+}
+.k-dropdown-wrap {
+    background-color: @input-background-color;
+}
+
+.k-dropdown-wrap.k-state-active {
+    border-color: @widget-border-color;
+    background-color: @input-background-color;
+    background-image: none;
+}
+
+.k-dropdown .k-state-focused {
+    color: @hover-text-color;
+    background-color: @input-background-color;
+    border-color: @select-border-color;
+    background-image: none;
+}
+
+.k-dropdown-wrap.k-state-hover,
+.k-dropdown-wrap.k-state-focused {
+    background-color: @select-hover-background-color;
+    background-image: none;
+    border-color: @select-border-color;
+}
+.k-tabstrip-items .k-item {
+    margin-right: 1ex;
+    border-color: @research-pane-tab-border-color;
+}
+
+.k-tabstrip-items .k-state-active .k-link {
+    color: @research-pane-active-tab-text-color;
+}
+
+.k-tabstrip-items .k-item.k-state-hover {
+    background-image: none;
+	background-color: lighten(@primary-background-color, 15%);
+}
+
+.k-ie8 .k-state-focused,
+.k-ie7 .k-state-focused
+{
+    border-style: solid;
+    border-width: 1px;
+}
+
+// TreeView hover
+.k-treeview .k-in.k-state-hover {
+    background-image: none;
+    background-color: transparent;
+    text-decoration: underline;
+    border-color: transparent;
+}
+
+// TruCode scoped specific
+.trucode .research-pane .k-tabstrip-items a {
+    font-weight: normal;
+    text-decoration: none;
+}
+.trucode .research-pane .k-tabstrip-items .k-state-active a,
+.trucode .research-pane .k-tabstrip-items .k-state-active a:hover {
+    color: @research-pane-active-tab-text-color;
+}
+.trucode .research-pane .k-tabstrip-items a,
+.trucode .research-pane .k-tabstrip-items a:hover {
+    color: @research-pane-tab-text-color;
+}
+
+.trucode .accordion-group {
+    background-color: @accordion-section-background-color;
+}
+
+.trucode .references .k-pane,
+.trucode .codebooks .k-pane,
+.trucode .research-wrap {
+    background-color: @control-whitespace-color;
+}
+
+.trucode .references .k-splitbar-horizontal .k-resize-handle,
+.trucode .codebooks .bottom-wrap > .k-splitbar-horizontal .k-resize-handle {
+    background-image: url("img/icons/resize_handle@{image-suffix}.png");
+    background-position: 50% 0;
+    height: 24px;
+    width: 22px;
+}
+
+.trucode .codebooks .k-splitbar-vertical .k-resize-handle {
+    background-image: url("img/icons/resize_handle_h@{image-suffix}.png");
+    background-position: 0;
+    width: 24px;
+    height: 10px;
+}
+
+.trucode .references .k-splitbar-horizontal,
+.trucode .codebooks .bottom-wrap > .k-splitbar-horizontal {
+    width: 22px;
+    background-image: url(img/splitbar-border.png);
+    background-position: 50% 0;
+    background-color: @control-whitespace-color;
+    border-color: @control-whitespace-color;
+
+    &:hover {
+        background-color: darken(desaturate(@control-whitespace-color, 10%), 10%);
+    }
+}
+
+.trucode .codebooks .k-splitbar-vertical {
+    height: 11px;
+    background-image: url(img/splitbar-border-h.png);
+    background-position: 0 50%;
+    background-color: @control-whitespace-color;
+    border-color: @control-whitespace-color;
+
+    &:hover {
+        background-color: darken(desaturate(@control-whitespace-color, 10%), 10%);
+    }
+}
+
+.trucode .k-splitbar.k-state-focused {
+    background-color: darken(desaturate(@control-whitespace-color, 10%), 10%);
+}

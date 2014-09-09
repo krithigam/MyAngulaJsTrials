@@ -1,0 +1,23 @@
+﻿<div class="pcs-part first">
+    <span class="pcs-heading"><%= headings[0] %></span>
+    <strong class="pcs-char"><%= pcsCodeParts[0] || '&mdash;' %></strong>
+    <span class="pcs-label"><%= labels[0] %></span>
+</div>
+<div class="pcs-part">
+    <span class="pcs-heading"><%= headings[1] %></span>
+    <strong class="pcs-char"><%= pcsCodeParts[1] || '&mdash;' %></strong>
+    <span class="pcs-label"><%= labels[1] %></span>
+</div>
+<div class="pcs-part">
+    <span class="pcs-heading"><%= headings[2] %></span>
+    <strong class="pcs-char"><%= pcsCodeParts[2] || '&mdash;' %></strong>
+    <span class="pcs-label"><%= labels[2] %></span>
+</div>
+<div class="pcs-overview">
+    <div class="pcs-overview-left">
+        Selected Code:
+        <strong class="pcs-code"><%= pcsCodeFormatted %></strong>
+        <span class="pcs-code-description"></span>
+    </div>
+    <button type="submit" class="k-button btn-add-code<% if (pcsCode.length === 7) { print(' enabled'); } else { print(' k-state-disabled'); } %>"<% if (pcsCode.length !== 7) { print(' disabled="disabled"'); } %>>Add Code</button>
+</div>

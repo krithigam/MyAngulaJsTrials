@@ -1,0 +1,64 @@
+﻿<% _.each(records, function(record) { %>
+    <div class="tabular-result tabular-index-result type-<%= record.recordType %> level-<%= record.record.level %><% if (record.record.subtypes && record.record.subtypes.length) { _.each(record.record.subtypes, function(st) { print(' subtype-' + st.name); }); } %><% if (record.selectable) { print(' selectable'); } %>" id="tabular-<%= record.data_sequence %>" data-book="<%= record.data_book %>" data-sequence="<%= record.data_sequence %>" data-date="<%= record.data_date %>">
+    <% switch (record.recordType) {
+        case 'letter': { %>
+        <span class="letter"><%= record.record.content %></span>
+        <% }
+        break;
+        case 'tablerowchannelpublishing':
+        case 'tablerow': { %>
+        <div class="table-wrapper <%= record.record.table_row_codes.table %>" data-table-type="<%= record.record.table_row_codes.table %>">
+            <div class="text-wrapper padded">
+                <span class="cp-icon icon" title="Channel Publishing Expanded ICD-9-CM Table of Drugs and Chemicals"></span>
+                <span class="text"><%= record.record.content %></span>
+                <span class="short-text hide"><%= (record.record.full_path) ? record.record.full_path.short : '' %></span>
+            </div>
+            <div class="codes table-codes-wrapper">
+            <% _.forEach(record.record.table_row_codes.items, function(rowCodeCollection, i) { %>
+                <% if (rowCodeCollection != null && rowCodeCollection[0] !== '-') { %>
+                    <% if (i === 0) { %>
+                    <a href="javascript:void(0)" class="code primary-code default-target"><%= rowCodeCollection[rowCodeCollection.length - 1] %></a>
+                    <% } else { %>
+                    <a href="javascript:void(0)" class="code<% if (rowCodeCollection.length > 1) { print(' bracketed'); } else { print(' primary-code'); } %>"<% if (rowCodeCollection.length > 1) { %> data-paired-code="<%= rowCodeCollection[0] %>"<% } %>><%= rowCodeCollection[rowCodeCollection.length - 1] %></a>
+                    <% } %>
+                <% } else { %>
+                <span>&mdash;</span>
+                <% } %>
+            <% }); %>
+            </div>
+        </div>
+        <% }
+        break;
+        case 'regular':
+        case 'customline': { %>
+        <div class="padded">
+            <div class="icon-wrapper col">
+                <span class="customline-icon icon" title="TruCode Custom Index Line"></span>
+            </div>
+            <div class="text-wrapper">
+                <span class="text"><%= record.record.content %></span>
+                <span class="codes">
+                <% if (record.hasCodes) { %>
+                <%_.forEach(record.record.regular_row_codes, function(rowCode, i) { %>
+                    <% if (i === 0) { %> 
+                    <a href="javascript:void(0)" class="code primary-code default-target"><%= rowCode %></a>
+                    <% } else { %>
+                    <strong>[</strong><a href="javascript:void(0)" class="code bracketed"><%= rowCode %></a><strong>]</strong>
+                    <% } %>
+                <% }); %>
+                <% } %>
+                </span>
+                <span class="short-text hide"><%= (record.record.full_path) ? record.record.full_path.short : '' %></span>
+            </div>
+        </div>
+        <% }
+        break;
+        default: { %>
+        <div class="padded">
+            <span class="text"><%= record.record.content %></span>
+        </div>
+        <% }
+        break;
+    } %>
+    </div>
+<% }); %>

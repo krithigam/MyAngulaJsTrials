@@ -1,0 +1,18 @@
+﻿<div class="pane-content pane-slim-s pane-slim-w pane-slim-e">
+    <div class="border">
+        <div class="heading-slim">
+            <% if (bookTitle) { print(bookTitle); } else { print('&nbsp;'); } %>
+        </div>
+        <div class="controls control-group">
+            <div class="history">
+                <button type="button" class="references-back references-history disabled k-state-disabled k-button"><span class="k-icon k-i-arrow-w">Back</span></button>
+                <button type="button" class="references-forward references-history disabled k-state-disabled k-button"><span class="k-icon k-i-arrow-e">Forward</span></button>
+            </div>
+            <div class="article-title" title="">&nbsp;</div>
+            <div class="actions">
+                <button type="button" class="references-browse-issue k-button" style="display:none">Browse Issue</button>
+                <button type="button" class="references-print k-button"><i class="k-icon tc-print"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
